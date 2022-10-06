@@ -1,0 +1,68 @@
+
+.theme-color{
+  display: flex;
+  justify-content: space-between;
+}
+.theme-color.show{
+  transform: scaleY(0);
+  transition: transform 400ms ease 0ms;
+}
+.theme-color.hide{
+  transform: scaleY(1);
+  transition: transform 400ms ease 0ms;
+}
+.button{
+  margin-right: 10px;
+  cursor: pointer;
+}
+.darkblue{
+  background-color: #0a022c;
+  color: #fff !important;
+}
+
+.darkpurple{
+  background-color: #4a0168;
+  color: #fff !important;
+}
+
+.darkskyblue{
+  background-color: #057a85;
+  color: #fff !important;
+}
+
+.darkred{
+  background-color: #ad0909;
+  color: #fff !important;
+}
+.dark{
+  background-color: #000;
+  color: #000;
+}
+.light{
+  background-color: #fff;
+  color: #000;
+}
+input[type='radio']{
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  /* cursor: pointer; */
+}
+.setting-button{
+  border: none;
+  appearance: none;
+}
+.setting-button{
+  width: 50px;
+  background: transparent;
+
+}
+.setting-button img{
+  width: 100%;
+}
+
+/* #0b052a */
+/* #32022e */
+/* #380303 */
+/* #022e32 */

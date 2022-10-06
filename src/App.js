@@ -1,11 +1,19 @@
-// import About from './components/About';
+import About from './components/About';
 import React,{ useState } from 'react';
 import Alert from './components/Alert';
 import Navbar from './components/Navbar';
 import TextForm from './components/TextForm';
-
+import {
+  BrowserRouter,
+  Routes,
+  Route,  
+} from "react-router-dom";
 function App() {
-  const [mode,setMode] = useState('light')
+  const [background,setBackgound] = useState('');
+  const changeBg = (color) => {
+    setBackgound(color);
+    
+  }
   const [alert,setAlert] = useState("")
   const showAlert = (message,type) => {
     setAlert({
@@ -16,29 +24,30 @@ function App() {
       setAlert(null)
     }, 1500);
   }
-  const toogleMode = () => {
-    if(mode === 'light'){
-      setMode('dark')
-      document.body.style.backgroundColor = "#000"
-      showAlert("Dark Mode has been Enabled.","success")
-    }
-    else{
-      setMode('light')
-      document.body.style.backgroundColor = "#fff"
-      showAlert("Light Mode has been Enabled.","success")
-    }
-  }
+
   
   return (
     
     <>
-      <Navbar title="TextUtils" mode={mode} toggleMode= {toogleMode} ></Navbar>
-      <Alert alert={alert} ></Alert>
-      <TextForm heading="Enter the text to analyze below " mode={mode} showalert = {showAlert}></TextForm>
-      {/* <About /> */}
+      <div className={`${background}`}  >
+      
+     
+        <BrowserRouter>
+        <Alert alert={alert} ></Alert>
+        <Navbar title="TextUtils"  changeBg={changeBg} background={background}></Navbar>
+          <Routes>
+          <Route path="/" element={ <TextForm heading="Enter the text to analyze below "  showalert = {showAlert}></TextForm>} />
+
+          <Route path="/about" element={<About />} />
+
+          
+          </Routes>
+        </BrowserRouter>
+      </div>
     </>
 
   );
 }
 
 export default App;
+// #0a022c
